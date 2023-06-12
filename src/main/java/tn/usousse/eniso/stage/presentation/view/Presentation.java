@@ -7,25 +7,14 @@ package tn.usousse.eniso.stage.presentation.view;
 /**
  * @author rahma
  */
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-
-
-
-
-
-
 
 import tn.usousse.eniso.stage.Model.Table;
 import tn.usousse.eniso.stage.presentation.controller.HashtableController;
 import tn.usousse.eniso.stage.service.Service;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Presentation implements ActionListener {
 
@@ -97,18 +86,6 @@ public class Presentation implements ActionListener {
 
 
         }
-        drawComponent.addMouseListener(new MouseAdapter()
-        {
-            public void mouseEntered(MouseEvent evt)
-            {
-
-                drawComponent.setBackground(Color.ORANGE);
-            }
-            public void mouseExited(MouseEvent evt)
-            {
-                drawComponent.setBackground(null);
-            }
-        });
 
 
     }

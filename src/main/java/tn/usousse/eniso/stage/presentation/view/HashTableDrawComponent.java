@@ -26,18 +26,17 @@ public class HashTableDrawComponent extends JComponent {
                 int x = e.getX();
                 int y = e.getY();
                 int caseSize = 100;
-                int startX =50;
-                int startY=50;
-                //int startX = (getWidth() - caseSize) / 2;
-                //int startY = (getHeight() - (caseSize * hashtableController.getSize())) / 2;
-                int nodeIndex = (y - startY) / caseSize;
+                int startX = 50;
+                int startY = 100;
+
+                int nodeIndex = (y - startY) / 50;
                 Node node = hashtableController.getModel().getNodes()[nodeIndex];
                 if (node != null) {
                     int r = startX;
                     while (node != null) {
                         int nodeX = r + caseSize + 50;
-                        int nodeY = startY + (caseSize * nodeIndex) + caseSize + 20;
-                        if (x >= nodeX && x <= nodeX + caseSize - 20 && y >= nodeY - caseSize - 30 && y <= nodeY - 40) {
+                        int nodeY = startY + 50 * nodeIndex;
+                        if (x >= nodeX && x <= nodeX + 80 && y >= nodeY - 10 && y <= nodeY + 30) {
                             int dialogResult = JOptionPane.showConfirmDialog(HashTableDrawComponent.this,
                                     "Are you sure you want to delete this node?", "Confirmation", JOptionPane.YES_NO_OPTION);
                             if (dialogResult == JOptionPane.YES_OPTION) {
@@ -50,7 +49,7 @@ public class HashTableDrawComponent extends JComponent {
                             }
                             break;
                         }
-                        r += caseSize + 30;
+                        r += 80 + 50;
                         node = node.getNext();
                     }
                 }
@@ -89,7 +88,6 @@ public class HashTableDrawComponent extends JComponent {
             while (n != null) {
 
 
-
                 drawNode(n, i, g2d, 100, xPos, y);
                 if (n.getNext() == null) {
                     drawNull(n, i, g2d, 100, xPos + width + 30, y);
@@ -112,12 +110,11 @@ public class HashTableDrawComponent extends JComponent {
             int rectY = lineY + caseSize;
             g2d.drawRect(x + caseSize + 50, rectY - caseSize - 30, caseSize - 20, 40);
             g2d.drawString(node.getValue(), x + caseSize + 75, lineY);
-            // Check if the mouse is on the current node
+
 
         }
 
-        }
-        //}
+    }
 
 
     private void drawNull(Node node, int i, Graphics2D g2d, int caseSize, int x, int y) {
@@ -133,7 +130,6 @@ public class HashTableDrawComponent extends JComponent {
 
 
     }
-
 
 
 }
